@@ -14,6 +14,8 @@ import { BrowserRouter } from 'react-router-dom'
 
 // redux stuff boilerplate
 
+// 
+
 const feeling = (state = '', action) => {
     if (action.type === "SET_FEELING") return action.payload
     return state
