@@ -1,4 +1,4 @@
-import { Paper, Button, Box } from '@mui/material';
+import { Paper, Button, Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios'
@@ -24,19 +24,27 @@ export default function Review() {
     }
 
     return (
-        <Paper elevation={2} sx = {{padding: 2, mx: 'auto', maxWidth: 'sm'}}>
+        <Paper elevation={2} sx = {{padding: 2, my:2, mx: 'auto', maxWidth: 'sm'}}>
             <form onSubmit={handleSubmit}>
                 <h2>Review Your Feedback</h2>
-                <Box sx={{m:1}}>Feelings: {feeling}</Box>
-                <Box sx={{m:1}}>Understanding: {understanding}</Box>
-                <Box sx={{m:1}}>Support: {support}</Box>
-                <Box sx={{m:1}}>Comments: {comments}</Box>
+                <Typography sx={{m:1}}>Feelings: {feeling}</Typography>
+                <Typography sx={{m:1}}>Understanding: {understanding}</Typography>
+                <Typography sx={{m:1}}>Support: {support}</Typography>
+                <Typography sx={{m:1}}>Comments: '{comments}'</Typography>
                 <Button 
                     sx={{m:1}}
-                    color='inherit'
+                    color='primary'
                     type='submit'
                     variant='contained'
                     >Submit</Button>
+                    <Button
+                        sx={{ m: 1 }}
+                        color='inherit'
+                        variant='contained'
+                        onClick={() => history.push(`/feeling`)}
+                    >
+                        Start Over
+                    </Button>
             </form>
         </Paper>
     )
