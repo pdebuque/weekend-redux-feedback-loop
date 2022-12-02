@@ -1,11 +1,12 @@
 import { Paper, Button, FormControl, InputLabel, Select, MenuItem, TextField, Box } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export default function Feedback({ name, next, header, numbered, prev }) {
 
-    const ratings = [5, 4, 3, 2, 1]
+    const store = useSelector(store=>store)
+
     const history = useHistory();
     const dispatch = useDispatch();
     const [rating, setRating] = useState('');
@@ -20,16 +21,21 @@ export default function Feedback({ name, next, header, numbered, prev }) {
         // move to next page
         history.push(`/${next}`)
     }
+    const ratings = [5, 4, 3, 2, 1];
 
+    
     return (
-        <Paper elevation={2} sx={{ padding: 2, mx: 'auto', maxWidth: 'sm' }}>
+        <Paper elevation={2} sx={{ padding: 2, my: 2, mx: 'auto', maxWidth: 'sm' }}>
             <form onSubmit={handleSubmit}>
                 <h2>{header}</h2>
+                
+                    {store[name] && <Box sx ={{m: 2, fontStyle: 'italic'}} >You answered '{store[name]}'</Box>}
+                
                 {numbered ?  /* conditional handles numbered vs. text feedback */
-                    <FormControl>
+                   <FormControl>
                         <InputLabel id={`${name}-select`}>{name}?</InputLabel>
                         <Select
-                            sx={{ width: 200 }}
+                            sx={{ width: 150 }}
                             labelId={`${name}-select`}
                             required
                             label={`${name}?`}

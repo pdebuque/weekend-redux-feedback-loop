@@ -8,11 +8,16 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 // redux
 import { useSelector } from 'react-redux'
 
+// theme
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from '../../theme';
+
 // components
 import Review from '../Review/Review';
 import Complete from '../Complete/Complete';
 import Home from '../Home/Home'
-import Feedback from '../Feedback/Feedback'
+import Feedback from '../Feedback/Feedback';
+import Nav from '../Nav/Nav'
 
 function App() {
 
@@ -57,13 +62,9 @@ function App() {
 
 
   return (
+    <ThemeProvider theme ={theme}>
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-
-        <h4>Don't forget it!</h4>
-        {JSON.stringify(store)}
-      </header>
+      <Nav />
       <Router>
 
         <Route exact path='/'><Home /></Route>
@@ -84,6 +85,7 @@ function App() {
         <Route path='/complete'><Complete /></Route>
       </Router>
     </div>
+    </ThemeProvider>
   );
 }
 
