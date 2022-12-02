@@ -12,6 +12,7 @@ import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Complete from '../Complete/Complete';
+import Home from '../Home/Home'
 
 function App() {
 
@@ -23,12 +24,14 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <Router>
+
+          <Route exact path = '/'><Home /></Route>
           <Route exact path = '/feeling'><Feeling /></Route>
            <Route exact path = '/understanding'><Understanding /></Route>
           <Route exact path = '/support'><Support /></Route>
           <Route exact path = '/comments'><Comments /></Route>
          <Route path = '/review'><Review /></Route>
-          {/* <Route path = '/complete' element = {<Complete />}></Route> */}
+          <Route path = '/complete'><Complete /></Route>
         </Router>
     </div>
   );

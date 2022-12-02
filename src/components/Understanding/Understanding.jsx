@@ -17,7 +17,7 @@ export default function Understanding() {
             payload: understanding
         });
         // move to next page
-        history.push('/comments')
+        history.push('/support')
     }
 
     return (
