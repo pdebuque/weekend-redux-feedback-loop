@@ -20,7 +20,7 @@ export default function TableModal({ feedback, getFeedback, setOpen, open }) {
 
     const modalStyle = {
         position: 'absolute',
-        top: '50%',
+        top: '35%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 400,
@@ -38,7 +38,7 @@ export default function TableModal({ feedback, getFeedback, setOpen, open }) {
                 <Typography id="delete-dialogue" variant="h6" component="h2">
                     Are you sure you want to delete?
                 </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                <Typography id="modal-modal-description" sx={{ mt: 2, mb: 1, ml: 1 }}>
                     This action cannot be undone.
                 </Typography>
                 <Button onClick={deleteFeedback}>confirm</Button>

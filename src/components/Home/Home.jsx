@@ -11,7 +11,7 @@ const handleClick = () =>{
 
     return (
         <Paper elevation={2} sx={{ padding: 2, my:2, mx: 'auto', maxWidth: 'sm' }}>
-            <h2>Welcome to the feedback portal</h2>
+            <h2>Welcome to the Feedback Portal</h2>
             <Button
                 sx={{ m: 1 }}
                 color='inherit'

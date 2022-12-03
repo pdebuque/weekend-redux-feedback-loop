@@ -7,7 +7,7 @@ export default function Nav() {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        PDA Feedback Center
+                        Prime Digital Academy Feedback Portal
                     </Typography>
                 </Toolbar>
             </AppBar>
