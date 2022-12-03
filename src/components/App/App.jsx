@@ -13,11 +13,12 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../theme';
 
 // components
-import Review from '../Review/Review';
-import Complete from '../Complete/Complete';
+import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
 import Feedback from '../Feedback/Feedback';
-import Nav from '../Nav/Nav'
+import Review from '../Review/Review';
+import Complete from '../Complete/Complete';
+import Admin from '../Admin/Admin';
 
 function App() {
 
@@ -83,6 +84,7 @@ function App() {
         })}
         <Route path='/review'><Review /></Route>
         <Route path='/complete'><Complete /></Route>
+        <Route path='/admin'><Admin /></Route>
       </Router>
     </div>
     </ThemeProvider>
