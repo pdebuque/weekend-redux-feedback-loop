@@ -4,14 +4,15 @@
     modal to confirm prior to delete
 */
 
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import FeedbackRow from './FeedbackRow/FeedbackRow'
 
 export default function Admin() {
-
+    const history = useHistory();
     const [feedback, setFeedback] = useState([])
     //get request: get all feedbacks and store it in state
     const getFeedback = () => {
@@ -58,7 +59,12 @@ export default function Admin() {
                     </TableBody>
                 </Table>
             </TableContainer>
-
+            <Button
+                sx={{ m: 1 }}
+                color='inherit'
+                variant='contained'
+                onClick={() => history.push('/')}
+            >Home</Button>
         </Paper>
 
     )
