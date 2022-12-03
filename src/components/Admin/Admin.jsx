@@ -6,7 +6,9 @@
 
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+
+import FeedbackRow from './FeedbackRow/FeedbackRow'
 
 export default function Admin() {
 
@@ -21,39 +23,41 @@ export default function Admin() {
             .catch(err => console.log('could not get!', err))
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getFeedback()
     }, [])
 
     return (
         <Paper elevation={2} sx={{ padding: 2, my: 2, mx: 'auto', maxWidth: 'sm' }}>
             <h2>Past feedback</h2>
-            <TableContainer component = {Paper} >
-            <Table size="small" aria-label="feedback table">
-                <TableHead >
-                    <TableRow>
-                        <TableCell sx={{fontWeight: 700}} >Feeling</TableCell>
-                        <TableCell>Understanding</TableCell>
-                        <TableCell>Support</TableCell>
-                        <TableCell>Comments</TableCell>
-                        <TableCell>Delete</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {feedback.map(el => {
-                        return (
-                            <TableRow key={el.id}>
-                                <TableCell>{el.feeling}</TableCell>
-                                <TableCell>{el.understanding}</TableCell>
-                                <TableCell>{el.support}</TableCell>
-                                <TableCell>{el.comments}</TableCell>
-                                <TableCell>Delete</TableCell>
-                            </TableRow>
-                        )
-                    })}
-                </TableBody>
-            </Table>
-</TableContainer>
+            <TableContainer component={Paper} >
+                <Table size="small" aria-label="feedback table">
+                    <TableHead >
+                        <TableRow>
+                            <TableCell sx={{ fontWeight: 700 }} >Feeling</TableCell>
+                            <TableCell>Understanding</TableCell>
+                            <TableCell>Support</TableCell>
+                            <TableCell>Comments</TableCell>
+                            <TableCell>Delete</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {feedback.map(el => {
+                            return (
+
+                                <FeedbackRow
+                                    key={el.id}
+                                    feedback={el}
+                                    getFeedback={getFeedback}
+                                >
+
+                                </FeedbackRow>
+
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
 
         </Paper>
 

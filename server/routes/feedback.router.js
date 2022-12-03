@@ -10,8 +10,6 @@ router.get('/', (req,res) =>{
         .catch(err=>console.log('could not get!', err))
 })
 
-
-
 router.post('/', (req, res) => {
     console.log('received post', req.body)
     const queryText = `INSERT INTO feedback
@@ -22,5 +20,15 @@ router.post('/', (req, res) => {
         .then(()=>res.sendStatus(201))
         .catch(err=>console.log('could not insert!', err))
 })
+
+router.delete('/:id', (req,res) =>{
+    console.log('deleting feedback');
+    const queryText = `DELETE FROM feedback
+                        WHERE id = $1`;
+    pool.query(queryText, [req.params.id])
+        .then(()=>res.sendStatus(201))
+        .catch(err=>console.log('could not delete!', err))
+})
+
 
 module.exports = router;
